@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="modal fade" id="historyModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Search History</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+          <ul>
+            <li *ngFor="let item of history">
+              {{item.search}}
+            </li>
+          </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)=deleteHistory() class="btn btn-danger">Clear History</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 bar">Welcome {{userName}}!</div>
+    <div class="col-4 bar" (click)=historyFunction() data-toggle="modal" data-target="#historyModal"> View Search History</div>
+    <div class="col-4 bar" (click)=logout()>Logout</div>
+    <div class="col-md-12 mt-4">
+      <label for="language">Search Language:</label>
+      <input type="text" class="form-control search" name="searchBox" [(ngModel)]="searchBox" required>
+      <br>
+      <button class="btn btn-info" (click)=searchRepo()>Submit</button>
+    </div>
+    </div>
+    <h5 class="mt-4 ml-4">Search Result:</h5>
+    <div class="searchData mt-4 ml-4" *ngFor="let list of repoList">
+        <h4 class="name">{{list.name}}</h4>
+        <p class="fname">{{list.full_name}}</p>
+        <p class="desc">Description: {{list.description}}</p>
+        <p class="star"><i class="fa fa-star"></i>{{list.stargazers_count}}</p>
+        <div>
+          <h5>Owner :</h5>
+          <img src="{{list.owner.avatar_url}}" height="200" width="200">
+          <p>{{list.owner.login}}</p>
+          <p>{{list.owner.url}}</p>
+          <p>{{list.owner.type}}</p>
+        </div>
+        <hr class="lead">
+  </div>
+
+</div>

@@ -1,0 +1,20 @@
+.bar{
+    font-size:1.1rem;
+    padding:1%;
+    color:black;
+    text-align: center;
+}
+.bar:hover{
+    background:gainsboro;
+    cursor:pointer;
+
+}
+.search{
+    width:50%;
+}
+.name{
+    color:dodgerblue;
+}
+.fname{
+ font-style: italic;
+}
